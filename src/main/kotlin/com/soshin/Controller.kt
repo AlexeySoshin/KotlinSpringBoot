@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController
 /**
  * This controller should return JSON response containing current timestamp
  */
-/*
+
 @RestController
 class Controller {
 
@@ -21,4 +21,4 @@ class Controller {
 }
 
 // No need for setters getters for a simple POJO
-data class homeResponse (val time : Long, val message : String? = null)*/
+data class homeResponse(val time: Long, val message: String? = null)
