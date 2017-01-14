@@ -1,4 +1,5 @@
 buildscript {
+	ext.kotlin_version = '1.0.6'
 	ext {
 		kotlinVersion = '1.0.6'
 		springBootVersion = '2.0.0.BUILD-SNAPSHOT'
@@ -12,6 +13,7 @@ buildscript {
 		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
 		classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
 		classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
+		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 	}
 }
 
@@ -21,7 +23,7 @@ apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
 
 jar {
-	baseName = 'demo'
+	baseName = 'SpringBootKotlin'
 	version = '0.0.1-SNAPSHOT'
 }
 
@@ -40,4 +42,8 @@ dependencies {
 	compile group: 'mysql', name: 'mysql-connector-java', version: '6.0.5'
 	compile("org.jetbrains.kotlin:kotlin-stdlib:${kotlinVersion}")
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+	compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+}
+sourceSets {
+	main.java.srcDirs += 'src/main/kotlin'
 }
